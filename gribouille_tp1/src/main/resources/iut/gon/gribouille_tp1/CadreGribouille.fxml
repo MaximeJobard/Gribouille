@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioMenuItem?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,8 +14,11 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 
 <BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <center>
@@ -52,8 +54,12 @@
                               <RadioMenuItem mnemonicParsing="false" text="9" toggleGroup="$epaisseur" />
                            </items>
                         </Menu>
-                        <CheckMenuItem mnemonicParsing="false" text="Crayon" />
-                        <MenuItem mnemonicParsing="false" text="Etoile" />
+                        <RadioMenuItem mnemonicParsing="false" selected="true" text="Crayon">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="outils" />
+                           </toggleGroup>
+                        </RadioMenuItem>
+                        <RadioMenuItem mnemonicParsing="false" text="Etoile" toggleGroup="$outils" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Aide">
@@ -64,21 +70,6 @@
               </menus>
             </MenuBar>
          </top>
-         <right>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="680.0" prefWidth="200.0">
-                     <children>
-                        <VBox layoutX="1.0" layoutY="-2.0" prefHeight="683.0" prefWidth="198.0">
-                           <children>
-                              <ColorPicker />
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </ScrollPane>
-         </right>
          <bottom>
             <GridPane BorderPane.alignment="CENTER">
               <columnConstraints>
@@ -115,6 +106,32 @@
                </children>
             </GridPane>
          </bottom>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Canvas height="667.0" width="610.0" />
+               </children>
+            </Pane>
+         </center>
+         <right>
+            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #C0C0C0;" BorderPane.alignment="CENTER">
+               <children>
+                  <ColorPicker />
+                  <TilePane prefHeight="214.0" prefWidth="106.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" width="48.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#21ff1f" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f20ff" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7de9f0" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1fec" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebff1f" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
+                     </children>
+                  </TilePane>
+               </children>
+            </VBox>
+         </right>
       </BorderPane>
    </center>
 </BorderPane>
