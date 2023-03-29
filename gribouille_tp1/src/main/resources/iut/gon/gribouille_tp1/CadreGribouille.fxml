@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.CheckMenuItem?>
 <?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -11,6 +12,11 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
 <BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <center>
@@ -61,14 +67,54 @@
          <right>
             <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="680.0" prefWidth="200.0">
                      <children>
-                        <ColorPicker layoutX="14.0" layoutY="22.0" />
+                        <VBox layoutX="1.0" layoutY="-2.0" prefHeight="683.0" prefWidth="198.0">
+                           <children>
+                              <ColorPicker />
+                           </children>
+                        </VBox>
                      </children>
                   </AnchorPane>
               </content>
             </ScrollPane>
          </right>
+         <bottom>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="X : " />
+                        <Label text="0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label text="Y : " />
+                        <Label text="0" />
+                     </children>
+                  </HBox>
+                  <Label prefHeight="16.0" prefWidth="76.0" text="Couleur" GridPane.columnIndex="4" />
+                  <Label text="Outils" GridPane.columnIndex="3" />
+                  <HBox prefHeight="100.0" prefWidth="120.0" GridPane.columnIndex="2">
+                     <children>
+                        <Label text="Epaisseur : " />
+                        <Label text="3" />
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+         </bottom>
       </BorderPane>
    </center>
 </BorderPane>
