@@ -66,6 +66,8 @@ public class TP2App extends Application {
   private void prepareBoutons() {
     ajouteTout.setOnAction(this::onAjouteTout);
     retireTout.setOnAction(this::onRetireTout);
+    versDroite.setOnAction(this::onAjouteUn);
+    versGauche.setOnAction(this::onRetireUn);
   }
 
   /** Ajoute tous les éléments de gauche dans la liste de droite
@@ -85,6 +87,24 @@ public class TP2App extends Application {
 	  droite.getItems().clear();
 	  ajouteTout.setDisable(false);
 	  retireTout.setDisable(true);
+  }
+  
+  private void onAjouteUn(ActionEvent actionEvent) {
+	  int index = gauche.getSelectionModel().getSelectedIndex();
+	  if(index != -1) {
+		  droite.getItems().add(gauche.getItems().get(index));
+		  gauche.getItems().remove(index);
+		  gauche.getSelectionModel().clearSelection();
+	  }
+  }
+
+  private void onRetireUn(ActionEvent actionEvent) {
+	  int index = droite.getSelectionModel().getSelectedIndex();
+	  if(index != -1) {
+		  gauche.getItems().add(droite.getItems().get(index));
+		  droite.getItems().remove(index);
+		  droite.getSelectionModel().clearSelection();
+	  }
   }
 
   /** Prépare les menus et leurs événements */
