@@ -1,6 +1,7 @@
 package iut.gon.gribouille_tp1;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,6 +21,16 @@ public class App extends Application {
         scene = new Scene(loadFXML("CadreGribouille"), 1920, 1080);
         stage.setScene(scene);
         stage.show();
+        stage.setOnCloseRequest(event -> {
+        if(Dialogue.confirmation()) {
+        	Platform.exit();
+        }
+        else{
+        	event.consume();
+        }
+        }
+        );
+        
     }
 
     static void setRoot(String fxml) throws IOException {
