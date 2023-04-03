@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class TP2App extends Application {
 
@@ -28,6 +29,7 @@ public class TP2App extends Application {
   private MenuItem quitter;
   private MenuItem a_propos;
   private Alert a;
+  private Alert fermeture;
 
 
   @Override
@@ -58,7 +60,11 @@ public class TP2App extends Application {
   /** Prépare la fenêtre pour demander confirmation avant fermeture */
   private void prepareFermeture(Stage stage) {
     stage.setOnCloseRequest(event -> {
-      //TODO confirmer ou consommer l'événement
+    	fermeture = new Alert(Alert.AlertType.CONFIRMATION, "Voulez vous fermer l'application ? ",ButtonType.YES, ButtonType.NO);
+    	Optional<ButtonType> res = fermeture.showAndWait();
+    	if (res.orElse(ButtonType.NO) != ButtonType.YES) {
+    		event.consume();
+    	}
     });
   }
 
@@ -96,6 +102,10 @@ public class TP2App extends Application {
 		  gauche.getItems().remove(index);
 		  gauche.getSelectionModel().clearSelection();
 	  }
+	  if (gauche.getItems().isEmpty()) {
+		  ajouteTout.setDisable(true);
+		  retireTout.setDisable(false);
+	  }
   }
 
   private void onRetireUn(ActionEvent actionEvent) {
@@ -104,6 +114,10 @@ public class TP2App extends Application {
 		  gauche.getItems().add(droite.getItems().get(index));
 		  droite.getItems().remove(index);
 		  droite.getSelectionModel().clearSelection();
+	  }
+	  if (gauche.getItems().isEmpty()) {
+		  retireTout.setDisable(true);
+		  ajouteTout.setDisable(false);
 	  }
   }
 
