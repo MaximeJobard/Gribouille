@@ -5,6 +5,8 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,6 +16,9 @@ import java.io.IOException;
  */
 public class App extends Application {
 
+	private double prevX;
+	private double prevY;
+	
     private static Scene scene;
 
     @Override
@@ -22,17 +27,25 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
         stage.setOnCloseRequest(event -> {
-        if(Dialogue.confirmation()) {
-        	Platform.exit();
+        	if(Dialogue.confirmation()) {
+        		Platform.exit();
+        	}
+        	else{
+        		event.consume();
+        	}
         }
-        else{
-        	event.consume();
-        }
-        }
-        );
-        
+	    );
+	    Canvas dessin = (Canvas) scene.lookup("Canvas");
+	
+	    
+	    dessin.addEventHandler(MouseEvent.MOUSE_PRESSED, (evt) -> {prevX = dessin.getTranslateX(); prevY = dessin.getTranslateY();});
+	    dessin.addEventHandler(MouseEvent.MOUSE_DRAGGED, (evt) -> {dessin.getGraphicsContext2D().strokeLine(prevX, prevY, evt.getX(), evt.getY());});
+	    
     }
 
+    
+    
+    
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
