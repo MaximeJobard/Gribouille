@@ -23,7 +23,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("CadreGribouille"), 1920, 1080);
+        scene = new Scene(loadFXML("CadreGribouille"), 960, 540);
         stage.setScene(scene);
         stage.show();
         stage.setOnCloseRequest(event -> {
@@ -38,8 +38,11 @@ public class App extends Application {
 	    Canvas dessin = (Canvas) scene.lookup("Canvas");
 	
 	    
-	    dessin.addEventHandler(MouseEvent.MOUSE_PRESSED, (evt) -> {prevX = dessin.getTranslateX(); prevY = dessin.getTranslateY();});
-	    dessin.addEventHandler(MouseEvent.MOUSE_DRAGGED, (evt) -> {dessin.getGraphicsContext2D().strokeLine(prevX, prevY, evt.getX(), evt.getY());});
+	    dessin.addEventHandler(MouseEvent.MOUSE_PRESSED, (evt) -> {prevX = evt.getX(); prevY = evt.getY();});
+	    dessin.addEventHandler(MouseEvent.MOUSE_DRAGGED, (evt) -> {dessin.getGraphicsContext2D().strokeLine(prevX, prevY, evt.getX(), evt.getY());
+	    this.prevX = evt.getX();
+	    this.prevY = evt.getY();
+	    });
 	    
     }
 
