@@ -40,27 +40,31 @@ public class App extends Application {
         
         Canvas dessin = (Canvas) scene.lookup("Canvas");
         
-//        Pane pane = (Pane) dessin.getParent();
-//        
-//        pane.addEventFilter(MouseEvent.MOUSE_PRESSED, (evt) -> {
-//                if(evt.getButton() == MouseButton.SECONDARY) {
-//                        Circle circle =new Circle();
-//                        circle.setRadius(5.0);
-//                X = evt.getX(); Y = evt.getY();
-//                circle.setCenterX(X);
-//                circle.setCenterY(Y);
-//                
-//                dessin.addEventHandler(MouseEvent.MOUSE_PRESSED, (event) -> {X = evt.getX(); Y = evt.getY();});
-//                pane.getChildren().add(circle);
-//                
-//                }
+        Pane pane = (Pane) dessin.getParent();
         
-        dessin.addEventHandler(MouseEvent.MOUSE_PRESSED, (evt) -> {X = evt.getX(); Y = evt.getY();});
-        dessin.addEventHandler(MouseEvent.MOUSE_DRAGGED, (evt) -> {dessin.getGraphicsContext2D().strokeLine(X, Y, evt.getX(), evt.getY());
-        this.X = evt.getX();
-        this.Y = evt.getY();
+        pane.addEventFilter(MouseEvent.MOUSE_PRESSED, (evt) -> {
+                if(evt.getButton() == MouseButton.SECONDARY) {
+                        Circle circle =new Circle();
+                        circle.setRadius(5.0);
+                X = evt.getX(); Y = evt.getY();
+                circle.setCenterX(X);
+                circle.setCenterY(Y);
+                
+                dessin.addEventHandler(MouseEvent.MOUSE_PRESSED, (event) -> {X = event.getX(); Y = event.getY(); event.consume();});
+                pane.getChildren().add(circle);
+                circle.setMouseTransparent(true);
+                evt.consume();
+                }
+                
+                if(evt.getButton() == MouseButton.PRIMARY) {
+                	dessin.addEventHandler(MouseEvent.MOUSE_PRESSED, (event) -> {X = event.getX(); Y = event.getY();});
+                    dessin.addEventHandler(MouseEvent.MOUSE_DRAGGED, (event2) -> {dessin.getGraphicsContext2D().strokeLine(X, Y, event2.getX(), event2.getY());
+                    this.X = event2.getX();
+                    this.Y = event2.getY();
+                    });
+                }
+        
         });
-//        });
         
         
         
