@@ -17,7 +17,6 @@ public class GrilleController implements Initializable {
 	GrilleModel gr;
 	
 	public GrilleController(GrilleModel g) {
-		gr = new GrilleModel();
 		gr = g;
 	} 
 	
@@ -28,14 +27,18 @@ public class GrilleController implements Initializable {
 		tab = new Label[3][3];
 		for(int i = 0 ; i < 3 ; i++) {
 			for(int j = 0 ; j < 3 ; j++) {
-				Label label = new Label(gr.tab[i][j]); 
+				Label label = new Label(gr.getCase(i,j).getValue()); 
 				label.setMaxSize(1000, 1000);
 				label.setAlignment(Pos.CENTER);
+				label.textProperty().bind(gr.getCase(i, j));
 
 				tab[i][j] = label;
 				// Un seul necessaire
-				tab[i][j].addEventHandler(MouseEvent.MOUSE_CLICKED, (evt) -> {label.setText("Bonjour");});
-				tab[i][j].setOnMouseClicked((evt)-> {label.setText("Bonjour");});
+				//tab[i][j].addEventHandler(MouseEvent.MOUSE_CLICKED, (evt) -> {label.setText("Bonjour");});
+				int j2 = j;
+				int i2 = i;
+				tab[i][j].setOnMouseClicked((evt)-> {gr.setCase(i2, j2, "Bonjour");});
+				
 				
 				grille.add(tab[i][j], i, j);
 

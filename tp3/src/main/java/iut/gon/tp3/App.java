@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,7 +27,20 @@ public class App extends Application {
         scene = new Scene(fxmlLoader.load(), 640, 480);
         stage.setScene(scene);
         stage.show();
-
+        
+        stage.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
+        	switch (event.getText()) {
+        	case "1" : g.setCase(2,0, "Touche"); break;
+        	case "2" : g.setCase(2,1, "Touche"); break;
+        	case "3" : g.setCase(2,2, "Touche"); break;
+        	case "4" : g.setCase(1,0, "Touche"); break;
+        	case "5" : g.setCase(1,1, "Touche"); break;
+        	case "6" : g.setCase(1,2, "Touche"); break;
+        	case "7" : g.setCase(0,0, "Touche"); break;
+        	case "8" : g.setCase(0,1, "Touche"); break;
+        	case "9" : g.setCase(0,2, "Touche"); break;
+        	}
+        	});
     }
 
   
