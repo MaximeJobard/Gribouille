@@ -14,7 +14,13 @@ import javafx.scene.text.TextAlignment;
 public class GrilleController implements Initializable {
 	@FXML GridPane grille;
 	Label[][] tab;
-
+	GrilleModel gr;
+	
+	public GrilleController(GrilleModel g) {
+		gr = new GrilleModel();
+		gr = g;
+	} 
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		grille.setStyle("-fx-background-color: seashell");	
@@ -22,7 +28,7 @@ public class GrilleController implements Initializable {
 		tab = new Label[3][3];
 		for(int i = 0 ; i < 3 ; i++) {
 			for(int j = 0 ; j < 3 ; j++) {
-				Label label = new Label("azeqsd"); 
+				Label label = new Label(gr.tab[i][j]); 
 				label.setMaxSize(1000, 1000);
 				label.setAlignment(Pos.CENTER);
 
@@ -35,6 +41,5 @@ public class GrilleController implements Initializable {
 
 			}	
 		}
-
 	}
 }
