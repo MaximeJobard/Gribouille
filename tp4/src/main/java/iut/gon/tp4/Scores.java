@@ -35,6 +35,7 @@ public class Scores {
     scores = FXCollections.observableList(new ArrayList<>());
     nulles = 0;
     scores.add(new Entree("Laurent",42));
+    scores.add(new Entree("Paul",51));
   }
 
   public void ajouteVictoire(String joueur) {

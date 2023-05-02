@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
@@ -70,9 +72,28 @@ public class GrilleController implements Initializable {
   }
 
   private void onGagne(String joueur) {
-    //TODO demander le nom du joueur
-    //TODO modifier scores
-    //TODO appeler la table des scores
+	  if(joueur == null) {
+		  table.ajouteNulle();
+	  }
+	  else {  
+		  TextInputDialog t = new TextInputDialog("joueur");
+		  
+		  t.showAndWait();
+		  table.ajouteVictoire(t.getResult());
+	  }
+	  FXMLLoader fxmlLoader = new FXMLLoader(Morpion.class.getResource("table.fxml"));
+	    Parent racine = null;
+		try {
+			racine = fxmlLoader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		TableController controller = fxmlLoader.getController();
+	  	if(controller ==  null) throw new RuntimeException("Controlleur null!");
+	  	controller.setScores(table);
+	    grille.getScene().setRoot(racine);
+	  
   }
 
   @FXML
@@ -81,11 +102,13 @@ public class GrilleController implements Initializable {
   }
   @FXML
   public void onMenuTable(ActionEvent evt) throws IOException {
-    FXMLLoader fxmlLoader = new FXMLLoader(Morpion.class.getResource("table.fxml"));    
-  	TableController controller = fxmlLoader.getController();
+    FXMLLoader fxmlLoader = new FXMLLoader(Morpion.class.getResource("table.fxml"));
+    Parent racine = fxmlLoader.load();
+	TableController controller = fxmlLoader.getController();
+  	if(controller ==  null) throw new RuntimeException("Controlleur null!");
   	controller.setScores(table);
-    fxmlLoader.setController(controller);
-    grille.getScene().setRoot(fxmlLoader.load());
+    grille.getScene().setRoot(racine);
+
   }
 
   @FXML

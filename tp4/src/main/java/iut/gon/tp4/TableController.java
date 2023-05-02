@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -19,8 +20,11 @@ public class TableController {
   @FXML public TableView<Scores.Entree> table;
 
 
-  public void onFermer(ActionEvent event) {
-    //TODO appeler la grille
+  public void onFermer(ActionEvent event) throws IOException {
+	  FXMLLoader fxmlLoader = new FXMLLoader(Morpion.class.getResource("grille.fxml"));
+		GrilleController controller = new GrilleController(scores);
+		fxmlLoader.setController(controller);
+	  	table.getScene().setRoot(fxmlLoader.load());
   }
 
   public void onReinit(ActionEvent event) {
