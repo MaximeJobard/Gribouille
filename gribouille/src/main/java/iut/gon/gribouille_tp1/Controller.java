@@ -12,9 +12,12 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import modele.Dessin;
 
 public class Controller implements Initializable {
 
+	private Dessin dessin;
+	
     @FXML
     private Label epaisseur;
 
@@ -75,6 +78,10 @@ public class Controller implements Initializable {
 	
 	public void onMouseDragged(MouseEvent evt) {
 		
+	}
+	
+	public void setDessin(Dessin d) {
+		dessin = d;
 	}
 
 }
