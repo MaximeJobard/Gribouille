@@ -112,10 +112,18 @@ public class ControllerDemineur implements Initializable {
 		for (int i = 0; i < t[0]; i++) {
 			gridpane.getColumnConstraints().add(new ColumnConstraints(32));
 			gridpane.getRowConstraints().add(new RowConstraints(32));
-			Label l = new Label("?");
-			l.setBackground(inconnu);
-			l.setPrefSize(31, 31);
-			l.setTextAlignment(TextAlignment.CENTER);
 		}
+		
+		for(int i = 0 ; i < t[0]; i++) {
+			for(int j = 0 ; j < t[1]; j++) {
+				Label l = new Label("?");
+				l.setBackground(inconnu);
+				l.setPrefSize(31, 31);
+				l.setTextAlignment(TextAlignment.CENTER);
+				
+				gridpane.add(l, i, j);
+			}
+		}
+		
 	}
 }

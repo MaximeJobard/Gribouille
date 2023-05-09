@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="661.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="661.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane fx:id="borderPane" layoutY="3.0" prefHeight="661.0" prefWidth="732.0">
          <top>
@@ -61,8 +61,9 @@
          </top>
          <center>
             <GridPane fx:id="gridpane" gridLinesVisible="true" BorderPane.alignment="CENTER">
-              
-            </GridPane>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </BorderPane.margin></GridPane>
          </center>
       </BorderPane>
    </children>
