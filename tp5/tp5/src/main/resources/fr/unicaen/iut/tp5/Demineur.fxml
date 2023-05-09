@@ -10,17 +10,15 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane prefHeight="661.0" prefWidth="732.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16">
+<AnchorPane prefHeight="661.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane fx:id="borderPane" layoutY="3.0" prefHeight="661.0" prefWidth="732.0">
          <top>
-            <VBox fx:id="vbox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <VBox fx:id="vbox" prefHeight="56.0" prefWidth="732.0" BorderPane.alignment="CENTER">
                <children>
                   <MenuBar fx:id="menuBar">
                     <menus>
@@ -31,18 +29,18 @@
                       </Menu>
                       <Menu fx:id="difficulte" mnemonicParsing="false" text="Dificulté">
                         <items>
-                              <RadioMenuItem userdata="10;10;10" fx:id="facile" mnemonicParsing="false" text="Facile">
+                              <RadioMenuItem fx:id="facile" mnemonicParsing="false" text="Facile" userData="10;10;10">
                                  <toggleGroup>
-                                    <ToggleGroup fx:id="difficulté" />
+                                    <ToggleGroup fx:id="difficulteToggleGroupe" />
                                  </toggleGroup>
                               </RadioMenuItem>
-                              <RadioMenuItem userdata="20;20;50" fx:id="moyen" mnemonicParsing="false" selected="true" text="Moyen" toggleGroup="$difficulté" />
-                              <RadioMenuItem userdata="30;20;100" fx:id="difficile" mnemonicParsing="false" text="Difficile" toggleGroup="$difficulté" />
+                              <RadioMenuItem fx:id="moyen" mnemonicParsing="false" selected="true" text="Moyen" toggleGroup="$difficulteToggleGroupe" userData="20;20;50" />
+                              <RadioMenuItem fx:id="difficile" mnemonicParsing="false" text="Difficile" toggleGroup="$difficulteToggleGroupe" userData="30;20;100" />
                         </items>
                       </Menu>
                     </menus>
                   </MenuBar>
-                  <HBox fx:id="hBox" prefHeight="100.0" prefWidth="200.0">
+                  <HBox fx:id="hBox" prefHeight="36.0" prefWidth="732.0">
                      <children>
                         <Label fx:id="nombreDInconnues" text="Nombre d'inconnues">
                            <HBox.margin>
