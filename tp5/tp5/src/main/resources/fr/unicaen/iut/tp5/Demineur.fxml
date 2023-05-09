@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane prefHeight="661.0" prefWidth="732.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16">
+   <children>
+      <BorderPane fx:id="borderPane" layoutY="3.0" prefHeight="661.0" prefWidth="732.0">
+         <top>
+            <VBox fx:id="vbox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <MenuBar fx:id="menuBar">
+                    <menus>
+                      <Menu fx:id="jeu" mnemonicParsing="false" text="Jeu">
+                        <items>
+                          <MenuItem fx:id="quitter" mnemonicParsing="false" text="Quitter" />
+                        </items>
+                      </Menu>
+                      <Menu fx:id="difficulte" mnemonicParsing="false" text="Dificulté">
+                        <items>
+                              <RadioMenuItem userdata="10;10;10" fx:id="facile" mnemonicParsing="false" text="Facile">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="difficulté" />
+                                 </toggleGroup>
+                              </RadioMenuItem>
+                              <RadioMenuItem userdata="20;20;50" fx:id="moyen" mnemonicParsing="false" selected="true" text="Moyen" toggleGroup="$difficulté" />
+                              <RadioMenuItem userdata="30;20;100" fx:id="difficile" mnemonicParsing="false" text="Difficile" toggleGroup="$difficulté" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                  <HBox fx:id="hBox" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="nombreDInconnues" text="Nombre d'inconnues">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="textInconues" editable="false" focusTraversable="false" />
+                        <Label fx:id="nombreDeMarques" text="Nombre de marques">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="textMarques" editable="false" focusTraversable="false" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </top>
+         <center>
+            <GridPane fx:id="gridpane" gridLinesVisible="true" BorderPane.alignment="CENTER">
+              
+            </GridPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
