@@ -50,6 +50,7 @@ public class App extends Application {
         	}
         }
 	    );
+        stage.setTitle(d.getNomDuFichier());
 //	    Canvas dessin = (Canvas) scene.lookup("Canvas");
 	
 	    
