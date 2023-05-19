@@ -1,8 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
-</AnchorPane>
+<BorderPane fx:controller="controllers.CouleursController" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <BorderPane prefHeight="724.0" prefWidth="811.0" BorderPane.alignment="CENTER">
+		<right>
+            <VBox prefHeight="200.0" prefWidth="105.0" style="-fx-background-color: #C0C0C0;" BorderPane.alignment="CENTER">
+               <children>
+                  <ColorPicker fx:id="ColorPicker"  />
+                  <TilePane hgap="3.0" prefHeight="214.0" prefWidth="115.0" vgap="3.0">
+                     <children>
+                        <Rectangle fx:id="rouge" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" width="48.0" />
+                        <Rectangle fx:id="vert" arcHeight="5.0" arcWidth="5.0" fill="#21ff1f" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
+                        <Rectangle fx:id="bleu" arcHeight="5.0" arcWidth="5.0" fill="#1f20ff" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
+                        <Rectangle fx:id="cyan" arcHeight="5.0" arcWidth="5.0" fill="#7de9f0" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
+                        <Rectangle fx:id="rose" arcHeight="5.0" arcWidth="5.0" fill="#ff1fec" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
+                        <Rectangle fx:id="jaune" arcHeight="5.0" arcWidth="5.0" fill="#ebff1f" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
+                        <Rectangle fx:id="noir" arcHeight="5.0" arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
+                        <Rectangle fx:id="blanc" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
+                     </children>
+                     <padding>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </padding>
+                  </TilePane>
+               </children>
+            </VBox>
+         </right>
+      </BorderPane>
+   </center>
+</BorderPane>
 
