@@ -1,36 +1,46 @@
 package controlleurs;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.shape.Rectangle;
 
-public class CouleursController {
+public class CouleursController implements Initializable {
 
 	@FXML
-	private ColorPicker ColorPicker;
+	public ColorPicker ColorPicker;
 
 	@FXML
-	private Rectangle rouge;
+	public Rectangle rouge;
 
 	@FXML
-	private Rectangle vert;
+	public Rectangle vert;
 
 	@FXML
-	private Rectangle bleu;
+	public Rectangle bleu;
 
 	@FXML
-	private Rectangle cyan;
+	public Rectangle cyan;
 
 	@FXML
-	private Rectangle rose;
+	public Rectangle rose;
 
 	@FXML
-	private Rectangle jaune;
+	public Rectangle jaune;
 
 	@FXML
-	private Rectangle noir;
+	public Rectangle noir;
 
 	@FXML
-	private Rectangle blanc;
+	public Rectangle blanc;
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
