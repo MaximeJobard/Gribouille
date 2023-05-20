@@ -18,6 +18,8 @@ public class StatusController implements Initializable{
 	@FXML
 	public Label epaisseur;
 
+	public Controller controller = new Controller();
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub

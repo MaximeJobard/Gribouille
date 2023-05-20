@@ -37,6 +37,8 @@ public class CouleursController implements Initializable {
 	@FXML
 	public Rectangle blanc;
 
+	public Controller controller = new Controller();
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub

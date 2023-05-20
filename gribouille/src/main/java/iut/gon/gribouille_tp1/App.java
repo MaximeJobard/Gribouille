@@ -15,6 +15,8 @@ import modele.*;
 
 import java.io.IOException;
 
+import controlleurs.*;
+
 /**
  * JavaFX App
  */
@@ -32,11 +34,11 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("CadreGribouille.fxml"));
         Dessin d = new Dessin();
-        Controller controller = new Controller();
+        DessinController dessinController = new DessinController();
         
 //        stage.setTitle();
-        controller.setDessin(d);
-        fxmlLoader.setController(controller);
+        dessinController.setDessin(d);
+        fxmlLoader.setController(dessinController);
     	
     	scene = new Scene(fxmlLoader.load(), 960, 540);
         stage.setScene(scene);

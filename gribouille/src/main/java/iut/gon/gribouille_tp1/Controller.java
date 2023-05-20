@@ -21,9 +21,6 @@ import modele.Trace;
 
 public class Controller implements Initializable {
 
-	private Dessin dessin;
-	private Trace trace;
-
 
 	@FXML
 	private Label epaisseur;
@@ -70,56 +67,9 @@ public class Controller implements Initializable {
 	@FXML
 	private Rectangle blanc;
 
-	private SimpleDoubleProperty prevX = new SimpleDoubleProperty();
-	private SimpleDoubleProperty prevY = new SimpleDoubleProperty();
+	
 
 	public void initialize(URL location, ResourceBundle resources) {
-		canvas.widthProperty().bind(pane.widthProperty());
-		canvas.heightProperty().bind(pane.heightProperty());
-		ChangeListener gestionnaire = new ChangeListener<Number>() {
-
-			@Override
-			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-				if (trace != null) {
-					dessin.addFigure(trace);
-					for (Figure f : dessin.getFigures()) {
-						for (int i = 1; i < f.getPoints().size() - 1; i++) {
-							canvas.getGraphicsContext2D().strokeLine(f.getPoints().get(i - 1).getX(),
-									f.getPoints().get(i - 1).getY(), f.getPoints().get(i).getX(),
-									f.getPoints().get(i).getY());
-						}
-					}
-				}
-
-			}
-
-		};
-		canvas.widthProperty().addListener(gestionnaire);
-		canvas.heightProperty().addListener(gestionnaire);
-		
-		coX.textProperty().bind(prevX.asString());
-		coY.textProperty().bind(prevY.asString());
-	}
-
-	public void onMousePressed(MouseEvent evt) {
-		prevX.set(evt.getX());
-		prevY.set(evt.getY());
-		if (trace != null) {
-			if(trace.getPoints().size()>1) {
-				dessin.addFigure(trace);
-			}
-		}
-		trace = new Trace(10, "noir", prevX.getValue(), prevY.getValue());
-	}
-
-	public void onMouseDragged(MouseEvent evt) {
-		canvas.getGraphicsContext2D().strokeLine(prevX.getValue(), prevY.getValue(), evt.getX(), evt.getY());
-		trace.addPoint(prevX.getValue(), prevY.getValue());
-		this.prevX.set(evt.getX());
-		this.prevY.set(evt.getY());
-	}
-
-	public void setDessin(Dessin d) {
-		dessin = d;
+		// TODO 
 	}
 }
