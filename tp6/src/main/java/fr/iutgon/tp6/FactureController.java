@@ -89,6 +89,11 @@ public class FactureController implements Initializable {
 
 		@Override
 		public Produit fromString(String string) {
+			for (int i = 0; i < table.getItems().size() ; i ++) {
+				if (table.getItems().get(i).getProduit().getNom() == string) {
+					return table.getItems().get(i).getProduit();
+				}
+			}
 			return null;
 		}}
 	  ,FXCollections.observableList(FabriqueProduits.getProduits())));
@@ -101,5 +106,7 @@ public class FactureController implements Initializable {
 	  Random r = new Random();
 	  Ligne ligne = new Ligne(r.nextInt(15), FabriqueProduits.getProduits().get(2));
 	  table.getItems().add(ligne);
+	  
+//	  sommeFacture = Bindings.add(sommeFacture, ligne.getProduit().getPrix());
 	}
 }
