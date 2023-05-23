@@ -60,7 +60,7 @@ public class FactureController implements Initializable {
 			public ObservableValue<Number> call(CellDataFeatures<Ligne, Number> param) {
 				return param.getValue().getProduit().prixProperty();
 			}
-			});
+		});
 	  
 	  totalHT.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Ligne,Number>, ObservableValue<Number>>() {
 
@@ -77,11 +77,29 @@ public class FactureController implements Initializable {
 				return param.getValue().totalTTCProperty();
 			}
 			});
-  }
+	  
+	  
+	  qte.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+	  produit.setCellFactory(ChoiceBoxTableCell.forTableColumn(new StringConverter<Produit>() {
 
-  public void onAjouter(ActionEvent actionEvent) {
+		@Override
+		public String toString(Produit object) {
+			return object.getNom();
+		}
+
+		@Override
+		public Produit fromString(String string) {
+			return null;
+		}}
+	  ,FXCollections.observableList(FabriqueProduits.getProduits())));
+  }
+  
+
+
+
+  	public void onAjouter(ActionEvent actionEvent) {
 	  Random r = new Random();
 	  Ligne ligne = new Ligne(r.nextInt(15), FabriqueProduits.getProduits().get(2));
 	  table.getItems().add(ligne);
-  }
+	}
 }
