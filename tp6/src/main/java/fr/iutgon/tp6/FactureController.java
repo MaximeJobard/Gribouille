@@ -16,6 +16,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.cell.ChoiceBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -45,10 +46,42 @@ public class FactureController implements Initializable {
    */
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    //TODO préparer la table
+	  qte.setCellValueFactory(new PropertyValueFactory<>("qte"));
+	  produit.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Ligne,Produit>, ObservableValue<Produit>>() {
+		  @Override
+		public ObservableValue<Produit> call(CellDataFeatures<Ligne, Produit> param) {
+			return param.getValue().produitProperty();
+		}
+	  });
+	  
+	  prixUnitaire.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Ligne,Number>, ObservableValue<Number>>() {
+
+			@Override
+			public ObservableValue<Number> call(CellDataFeatures<Ligne, Number> param) {
+				return param.getValue().getProduit().prixProperty();
+			}
+			});
+	  
+	  totalHT.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Ligne,Number>, ObservableValue<Number>>() {
+
+		@Override
+		public ObservableValue<Number> call(CellDataFeatures<Ligne, Number> param) {
+			return param.getValue().totalHTProperty();
+		}
+		});
+	  
+	  totalTTC.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Ligne,Number>, ObservableValue<Number>>() {
+
+			@Override
+			public ObservableValue<Number> call(CellDataFeatures<Ligne, Number> param) {
+				return param.getValue().totalTTCProperty();
+			}
+			});
   }
 
   public void onAjouter(ActionEvent actionEvent) {
-    //TODO ajouter un produit aléatoire à la table
+	  Random r = new Random();
+	  Ligne ligne = new Ligne(r.nextInt(15), FabriqueProduits.getProduits().get(2));
+	  table.getItems().add(ligne);
   }
 }
