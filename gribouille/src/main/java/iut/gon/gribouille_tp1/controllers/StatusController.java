@@ -25,8 +25,6 @@ public class StatusController implements Initializable{
 		coX.textProperty().bind(controller.prevX.asString());
 		coY.textProperty().bind(controller.prevY.asString());
 		epaisseur.textProperty().bind(controller.epaisseurs.asString());
-
-		
 	}
 
 	public void setController(Controller controller2) {
