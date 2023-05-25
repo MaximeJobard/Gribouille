@@ -21,9 +21,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 
-<BorderPane fx:controller="controller.Controller" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-   <fx:include fx:id="couleursController" source="Couleurs.fxml"/>
-   <fx:include fx:id="dessinController" source="Dessin.fxml"/>
-   <fx:include fx:id="menusController" source="Menus.fxml"/>
-   <fx:include fx:id="statusController" source="Status.fxml"/>
+<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <fx:include fx:id="couleurs" source="Couleurs.fxml" />
+   <fx:include fx:id="dessin" source="Dessin.fxml" />
+   <fx:include fx:id="menus" source="Menus.fxml" />
+   <fx:include fx:id="status" source="Status.fxml" />
 </BorderPane>

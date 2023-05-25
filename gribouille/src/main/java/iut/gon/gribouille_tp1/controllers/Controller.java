@@ -1,9 +1,11 @@
-package controlleurs;
+package iut.gon.gribouille_tp1.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import iut.gon.gribouille_tp1.Dialogue;
+import iut.gon.gribouille_tp1.modele.Dessin;
+import iut.gon.gribouille_tp1.modele.Trace;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -15,18 +17,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import modele.Dessin;
-import modele.Trace;
 
 public class Controller implements Initializable {
 	public final SimpleObjectProperty<Color> couleur = new SimpleObjectProperty<Color>(Color.BLACK);
 	public final SimpleIntegerProperty epaisseurs = new SimpleIntegerProperty(1);
 	
 	@FXML
-	public CouleursController couleursController;
+	public DessinController dessinController;
 	
 	@FXML
-	public DessinController dessinController;
+	public CouleursController couleursController;
 
 	@FXML
 	public MenusController menusController;
@@ -34,41 +34,37 @@ public class Controller implements Initializable {
 	@FXML
 	public StatusController statusController;
 	
-	@FXML
-	public Canvas canvas;
-	
-	@FXML
-	public Label coX;
-	
-	@FXML
-	public Label coY;
-	
-	@FXML
-	public Label epaisseur;
+
 	
 	@FXML
 	public ToggleGroup ep;
 	
 	private Dessin dessin;
 	private Trace trace;
-	private SimpleDoubleProperty prevX = new SimpleDoubleProperty();
-	private SimpleDoubleProperty prevY = new SimpleDoubleProperty();
+	public SimpleDoubleProperty prevX = new SimpleDoubleProperty();
+	public SimpleDoubleProperty prevY = new SimpleDoubleProperty();
 	
+	public Controller(Dessin d) {
+		dessin = d;
+	}
+
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		couleursController = new CouleursController();
 		dessinController = new DessinController();
 		menusController = new MenusController();
-		statusController = new StatusController();
+		statusController = new StatusController(); 
 		
-		couleursController.initialize(location, resources);
-		dessinController.initialize(location, resources);
-		menusController.initialize(location, resources);
-		statusController.initialize(location, resources);
+		/*ep.selectedToggleProperty().addListener((obs, old, neww) -> {
+			System.out.println(neww);
+		});*/
 		
-		coX.textProperty().bind(prevX.asString());
-		coY.textProperty().bind(prevY.asString());
-		epaisseur.textProperty().bind(ep.getSelectedToggle().getProperties());
+		
+		this.dessinController.setController(this);
+		this.couleursController.setController(this);
+		this.menusController.setController(this);
+		this.statusController.setController(this);
 	}
 
 
@@ -84,14 +80,18 @@ public class Controller implements Initializable {
 	}
 
 	public void onMouseDragged(MouseEvent evt) {
-		canvas.getGraphicsContext2D().strokeLine(prevX.getValue(), prevY.getValue(), evt.getX(), evt.getY());
+		dessinController.canvas.getGraphicsContext2D().strokeLine(prevX.getValue(), prevY.getValue(), evt.getX(), evt.getY());
 		trace.addPoint(prevX.getValue(), prevY.getValue());
 		this.prevX.set(evt.getX());
 		this.prevY.set(evt.getY());
 	}
 	
+	public void onMouseMove(MouseEvent evt) {
+		
+	}
+	
 	public boolean OnQuitter() {
-		return Dialogue.confirmation();
+		return Dialogue.confirmation(); 
 	}
 	
 }

@@ -1,8 +1,11 @@
-package controlleurs;
+package iut.gon.gribouille_tp1.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import iut.gon.gribouille_tp1.modele.Dessin;
+import iut.gon.gribouille_tp1.modele.Figure;
+import iut.gon.gribouille_tp1.modele.Trace;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -12,9 +15,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import modele.Dessin;
-import modele.Figure;
-import modele.Trace;
 
 public class DessinController implements Initializable{
 	
@@ -37,12 +37,10 @@ public class DessinController implements Initializable{
 	private Trace trace;
 	private SimpleDoubleProperty prevX = new SimpleDoubleProperty();
 	private SimpleDoubleProperty prevY = new SimpleDoubleProperty();
-	public Controller controller = new Controller();
+	public Controller controller;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		canvas.widthProperty().bind(pane.widthProperty());
-		canvas.heightProperty().bind(pane.heightProperty());
 		ChangeListener gestionnaire = new ChangeListener<Number>() {
 
 			@Override
@@ -61,12 +59,19 @@ public class DessinController implements Initializable{
 			}
 
 		};
+		canvas.widthProperty().bind(pane.widthProperty());
+		canvas.heightProperty().bind(pane.heightProperty());
 		canvas.widthProperty().addListener(gestionnaire);
 		canvas.heightProperty().addListener(gestionnaire);
+		
+	}
+	
+	public void setController(Controller c) {
+		this.controller = c;
 	}
 	
 	public void efface() {
-		canvas.getGraphicsContext2D().clearRect(0, 0, 0, 0);
+		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 	}
 	
 	public void trace (double x1, double x2, double y1, double y2) {
@@ -76,6 +81,18 @@ public class DessinController implements Initializable{
 	
 	public void setDessin(Dessin d) {
 		dessin = d;
+	}
+	
+	public void onMousePressed(MouseEvent evt) {
+		controller.onMousePressed(evt);
+	}
+	
+	public void onMouseMove(MouseEvent evt) {
+		controller.onMouseMove(evt);
+	}
+	
+	public void onMouseDragged(MouseEvent evt) {
+		controller.onMouseDragged(evt);
 	}
 	
 }

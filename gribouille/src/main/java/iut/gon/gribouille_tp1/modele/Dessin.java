@@ -1,4 +1,4 @@
-package modele;
+package iut.gon.gribouille_tp1.modele;
 
 import javafx.beans.binding.BooleanExpression;
 import javafx.beans.binding.StringExpression;

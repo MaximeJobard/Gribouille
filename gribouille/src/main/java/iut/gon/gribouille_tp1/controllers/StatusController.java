@@ -1,4 +1,4 @@
-package controlleurs;
+package iut.gon.gribouille_tp1.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,11 +18,19 @@ public class StatusController implements Initializable{
 	@FXML
 	public Label epaisseur;
 
-	public Controller controller = new Controller();
+	public Controller controller;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+		coX.textProperty().bind(controller.prevX.asString());
+		coY.textProperty().bind(controller.prevY.asString());
+		epaisseur.textProperty().bind(controller.epaisseurs.asString());
+
+		
+	}
+
+	public void setController(Controller controller2) {
+		controller = controller2;
 		
 	}
 }

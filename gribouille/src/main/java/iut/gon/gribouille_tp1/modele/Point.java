@@ -1,4 +1,4 @@
-package modele;
+package iut.gon.gribouille_tp1.modele;
 
 /**
  Stocke un point

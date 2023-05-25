@@ -1,4 +1,4 @@
-package modele;
+package iut.gon.gribouille_tp1.modele;
 
 import java.util.ArrayList;
 import java.util.List;

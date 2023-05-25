@@ -11,11 +11,11 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import modele.*;
 
 import java.io.IOException;
 
-import controlleurs.*;
+import iut.gon.gribouille_tp1.controllers.*;
+import iut.gon.gribouille_tp1.modele.*;
 
 /**
  * JavaFX App
@@ -34,10 +34,8 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("CadreGribouille.fxml"));
         Dessin d = new Dessin();
-        DessinController dessinController = new DessinController();
+        Controller dessinController = new Controller(d);
         
-//        stage.setTitle();
-        dessinController.setDessin(d);
         fxmlLoader.setController(dessinController);
     	
     	scene = new Scene(fxmlLoader.load(), 960, 540);

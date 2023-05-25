@@ -21,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 
-<BorderPane fx:controller="controllers.CouleursController" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:controller="iut.gon.gribouille_tp1.controllers.CouleursController" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <BorderPane prefHeight="724.0" prefWidth="811.0" BorderPane.alignment="CENTER">
 		<right>

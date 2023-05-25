@@ -1,4 +1,4 @@
-package controlleurs;
+package iut.gon.gribouille_tp1.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -37,12 +37,16 @@ public class CouleursController implements Initializable {
 	@FXML
 	public Rectangle blanc;
 
-	public Controller controller = new Controller();
+	public Controller controller;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public void setController(Controller controller2) {
+		controller = controller2;
 	}
 	
 }

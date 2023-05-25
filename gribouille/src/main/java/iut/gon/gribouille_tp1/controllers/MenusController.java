@@ -1,4 +1,4 @@
-package controlleurs;
+package iut.gon.gribouille_tp1.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,8 +15,7 @@ public class MenusController implements Initializable{
 	@FXML
 	public ToggleGroup outils;
 	
-	public Stage stage;
-	public Controller controller = new Controller();
+	public Controller controller;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -24,8 +23,8 @@ public class MenusController implements Initializable{
 		
 	}
 	
-	public void setStage(Stage s) {
-		stage = s;
+	public void setController(Controller c) {
+		controller = c;
 	}
 	
 	public void onQuitte() {
