@@ -1,5 +1,7 @@
 package fr.unicaen.iut.tp5;
 
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.net.http.WebSocket.Listener;
 import java.util.ResourceBundle;
@@ -120,6 +122,24 @@ public class ControllerDemineur implements Initializable {
 				l.setBackground(inconnu);
 				l.setPrefSize(31, 31);
 				l.setTextAlignment(TextAlignment.CENTER);
+				
+				l.addEventHandler(MouseEvent.MOUSE_CLICKED, (evt) -> {
+					if (evt.getButton() == MouseButton.PRIMARY && l.getBackground() == inconnu) {
+						l.setBackground(echec);
+					}
+					
+					if (evt.getButton() == MouseButton.PRIMARY && l.getBackground() == inconnu) {
+						l.setBackground(libre);
+						modele.revele(j, i);
+					}
+				});
+				
+				l.addEventHandler(MouseEvent.MOUSE_CLICKED, (evt) -> {
+					if (evt.getButton() == MouseButton.SECONDARY && l.getBackground() != libre) {
+						l.setBackground(marquee);
+//						modele.marque(j, i);
+					}
+				});
 				
 				gridpane.add(l, i, j);
 			}
