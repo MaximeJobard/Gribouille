@@ -105,6 +105,9 @@ public class ControllerDemineur implements Initializable {
 	Background echec = new Background(red);
 	Background marquee = new Background(lemonchiffon);
 
+	int x;
+	int y;
+	
 	public void initGrille(String s) {
 		gridpane.getColumnConstraints().clear();
 		gridpane.getRowConstraints().clear();
@@ -123,22 +126,27 @@ public class ControllerDemineur implements Initializable {
 				l.setPrefSize(31, 31);
 				l.setTextAlignment(TextAlignment.CENTER);
 				
-				l.addEventHandler(MouseEvent.MOUSE_CLICKED, (evt) -> {
-					if (evt.getButton() == MouseButton.PRIMARY && l.getBackground() == inconnu) {
-						l.setBackground(echec);
-					}
-					
-					if (evt.getButton() == MouseButton.PRIMARY && l.getBackground() == inconnu) {
-						l.setBackground(libre);
-						modele.revele(j, i);
-					}
-				});
+				x = i;
+				y = j;
+				l.textProperty().bind(modele.texteProperty(x, y));
 				
 				l.addEventHandler(MouseEvent.MOUSE_CLICKED, (evt) -> {
-					if (evt.getButton() == MouseButton.SECONDARY && l.getBackground() != libre) {
-						l.setBackground(marquee);
-//						modele.marque(j, i);
+					if (evt.getButton() == MouseButton.PRIMARY && l.getBackground() == inconnu) {
+						modele.revele(x, y);
+						if (modele.estPerdu()) {
+							l.setBackground(echec);
+						}
+						else{
+							l.setBackground(libre);
+						}
 					}
+					
+					
+					if (evt.getButton() == MouseButton.SECONDARY && l.getBackground() == inconnu) {
+						l.setBackground(marquee);
+						modele.marque(x, y);
+					}
+					
 				});
 				
 				gridpane.add(l, i, j);
