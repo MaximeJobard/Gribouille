@@ -51,10 +51,6 @@ public class Controller implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		couleursController = new CouleursController();
-		dessinController = new DessinController();
-		menusController = new MenusController();
-		statusController = new StatusController(); 
 		
 		/*ep.selectedToggleProperty().addListener((obs, old, neww) -> {
 			System.out.println(neww);
@@ -65,6 +61,11 @@ public class Controller implements Initializable {
 		this.couleursController.setController(this);
 		this.menusController.setController(this);
 		this.statusController.setController(this);
+		
+		statusController.coX.textProperty().bind(prevX.asString());
+		statusController.coY.textProperty().bind(prevY.asString());
+		statusController.epaisseur.textProperty().bind(epaisseurs.asString());
+		
 	}
 
 

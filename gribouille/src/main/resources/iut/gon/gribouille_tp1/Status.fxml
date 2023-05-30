@@ -21,36 +21,35 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 
-<BorderPane fx:controller="iut.gon.gribouille_tp1.controllers.StatusController" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-   <center>
-      <BorderPane prefHeight="724.0" prefWidth="811.0" BorderPane.alignment="CENTER">
-			<bottom>
-            <GridPane BorderPane.alignment="CENTER">
-				<children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label text="X : " />
-                        <Label fx:id="coX" text="0" />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
-                     <children>
-                        <Label text="Y : " />
-                        <Label fx:id="coY" text="0" />
-                     </children>
-                  </HBox>
-                  <Label prefHeight="16.0" prefWidth="76.0" text="Couleur" GridPane.columnIndex="4" />
-                  <Label text="Outils" GridPane.columnIndex="3" />
-                  <HBox prefHeight="100.0" prefWidth="120.0" GridPane.columnIndex="2">
-                     <children>
-                        <Label text="Epaisseur : " />
-                        <Label fx:id="epaisseur" text="3" />
-                     </children>
-                  </HBox>
-               </children>
-           </GridPane>
-        </bottom>
-     </BorderPane>
-  </center>
-</BorderPane>
+
+<GridPane BorderPane.alignment="CENTER"
+	fx:controller="iut.gon.gribouille_tp1.controllers.StatusController"
+	xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<HBox prefHeight="100.0" prefWidth="200.0">
+			<children>
+				<Label text="X : " />
+				<Label fx:id="coX" text="0" />
+			</children>
+		</HBox>
+		<HBox prefHeight="100.0" prefWidth="200.0"
+			GridPane.columnIndex="1">
+			<children>
+				<Label text="Y : " />
+				<Label fx:id="coY" text="0" />
+			</children>
+		</HBox>
+		<Label prefHeight="16.0" prefWidth="76.0" text="Couleur"
+			GridPane.columnIndex="4" />
+		<Label text="Outils" GridPane.columnIndex="3" />
+		<HBox prefHeight="100.0" prefWidth="120.0"
+			GridPane.columnIndex="2">
+			<children>
+				<Label text="Epaisseur : " />
+				<Label fx:id="epaisseur" text="3" />
+			</children>
+		</HBox>
+	</children>
+</GridPane>
+     
 

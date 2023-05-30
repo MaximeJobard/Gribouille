@@ -22,8 +22,18 @@
 <?import javafx.scene.shape.Rectangle?>
 
 <BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-   <fx:include fx:id="couleurs" source="Couleurs.fxml" />
-   <fx:include fx:id="dessin" source="Dessin.fxml" />
-   <fx:include fx:id="menus" source="Menus.fxml" />
-   <fx:include fx:id="status" source="Status.fxml" />
+	
+	    <right>
+	   		<fx:include fx:id="couleurs" source="Couleurs.fxml" />
+	    </right>
+	    <center>
+	    	<fx:include fx:id="dessin" source="Dessin.fxml" /> 
+	    </center>
+	    <top>
+	    	<fx:include fx:id="menus" source="Menus.fxml" />
+	    </top>
+	    <bottom>
+	    	<fx:include fx:id="status" source="Status.fxml" />
+	    </bottom>
+	    
 </BorderPane>
