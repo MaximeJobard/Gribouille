@@ -96,7 +96,7 @@ public class ControllerDemineur implements Initializable {
 	}
 
 	BackgroundFill aqua = new BackgroundFill(Color.AQUA, new CornerRadii(0.2), new Insets(0));
-	BackgroundFill lightgray = new BackgroundFill(Color.LIGHTGRAY, new CornerRadii(0), new Insets(0));
+	BackgroundFill lightgray = new BackgroundFill(Color.LIGHTGRAY, new CornerRadii(0.2), new Insets(0));
 	BackgroundFill red = new BackgroundFill(Color.RED, new CornerRadii(0.2), new Insets(0));
 	BackgroundFill lemonchiffon = new BackgroundFill(Color.LEMONCHIFFON, new CornerRadii(0.2), new Insets(0));
 
@@ -105,8 +105,6 @@ public class ControllerDemineur implements Initializable {
 	Background echec = new Background(red);
 	Background marquee = new Background(lemonchiffon);
 
-	int x;
-	int y;
 	
 	public void initGrille(String s) {
 		gridpane.getColumnConstraints().clear();
@@ -126,32 +124,55 @@ public class ControllerDemineur implements Initializable {
 				l.setPrefSize(31, 31);
 				l.setTextAlignment(TextAlignment.CENTER);
 				
-				x = i;
-				y = j;
+				int x = i;
+				int y = j;
+				
 				l.textProperty().bind(modele.texteProperty(x, y));
 				
 				l.addEventHandler(MouseEvent.MOUSE_CLICKED, (evt) -> {
-					if (evt.getButton() == MouseButton.PRIMARY && l.getBackground() == inconnu) {
-						modele.revele(x, y);
-						if (modele.estPerdu()) {
-							l.setBackground(echec);
-						}
-						else{
-							l.setBackground(libre);
-						}
+					if (modele.estPerdu()) {
+						return;
 					}
 					
+					if (evt.getButton() == MouseButton.PRIMARY) {
+						if(l.getBackground() == marquee) {
+							return;
+						}
+						modele.revele(x, y);
+					}
 					
-					if (evt.getButton() == MouseButton.SECONDARY && l.getBackground() == inconnu) {
-						l.setBackground(marquee);
+					if (evt.getButton() == MouseButton.SECONDARY) {
 						modele.marque(x, y);
 					}
 					
+					switch (l.getText()) {
+					case "P":
+						l.setBackground(marquee);
+						break;
+					case "X":
+						l.setBackground(echec);
+						break;
+					case "?":
+						l.setBackground(inconnu);
+						break;
+					default :
+						l.setBackground(libre);
+						break;
+					}
+
+					
+					/**
+					 * 
+						if (modele.estPerdu()) {
+							l.setBackground(echec);
+							return;
+						}						else{
+							l.setBackground(libre);
+						}
+					 */
 				});
-				
 				gridpane.add(l, i, j);
 			}
 		}
-		
 	}
 }
