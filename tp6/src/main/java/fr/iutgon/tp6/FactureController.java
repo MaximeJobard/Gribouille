@@ -107,6 +107,9 @@ public class FactureController implements Initializable {
 	  Ligne ligne = new Ligne(r.nextInt(15), FabriqueProduits.getProduits().get(2));
 	  table.getItems().add(ligne);
 	  
+	  	  
+	  sommeFacture.textProperty().bind(null);
+	  
 //	  sommeFacture = Bindings.add(sommeFacture, ligne.getProduit().getPrix());
 	}
 }
