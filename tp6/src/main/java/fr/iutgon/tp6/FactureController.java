@@ -36,6 +36,7 @@ public class FactureController implements Initializable {
   public TableColumn<Ligne, Number> totalHT;
   public TableColumn<Ligne, Number> totalTTC;
   public TextField sommeFacture;
+  public float somme;
 
   /**
    Called to initialize a controller after its root element has been completely processed.
@@ -46,6 +47,8 @@ public class FactureController implements Initializable {
    */
   @Override
   public void initialize(URL location, ResourceBundle resources) {
+	  somme = 0;
+	  
 	  qte.setCellValueFactory(new PropertyValueFactory<>("qte"));
 	  produit.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Ligne,Produit>, ObservableValue<Produit>>() {
 		  @Override
@@ -107,9 +110,7 @@ public class FactureController implements Initializable {
 	  Ligne ligne = new Ligne(r.nextInt(15), FabriqueProduits.getProduits().get(2));
 	  table.getItems().add(ligne);
 	  
-	  	  
-	  sommeFacture.textProperty().bind(null);
-	  
-//	  sommeFacture = Bindings.add(sommeFacture, ligne.getProduit().getPrix());
+//	  somme += ligne.getTotalTTC().floatValue();
+//	  sommeFacture = Bindings.add(sommeFacture, somme);
 	}
 }
