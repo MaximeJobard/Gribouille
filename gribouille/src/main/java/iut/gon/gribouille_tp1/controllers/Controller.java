@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import iut.gon.gribouille_tp1.Dialogue;
+import iut.gon.gribouille_tp1.Outils;
+import iut.gon.gribouille_tp1.OutilsCrayon;
 import iut.gon.gribouille_tp1.modele.Dessin;
 import iut.gon.gribouille_tp1.modele.Trace;
 import javafx.application.Platform;
@@ -43,6 +45,7 @@ public class Controller implements Initializable {
 	private Trace trace;
 	public SimpleDoubleProperty prevX = new SimpleDoubleProperty();
 	public SimpleDoubleProperty prevY = new SimpleDoubleProperty();
+	public Outils outils = new OutilsCrayon(this);
 	
 	public Controller(Dessin d) {
 		dessin = d;
