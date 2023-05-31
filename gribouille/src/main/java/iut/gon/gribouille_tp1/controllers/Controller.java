@@ -85,6 +85,7 @@ public class Controller implements Initializable {
 		trace.addPoint(prevX.getValue(), prevY.getValue());
 		this.prevX.set(evt.getX());
 		this.prevY.set(evt.getY());
+		dessin.addFigure(trace);
 	}
 	
 	public void onMouseMove(MouseEvent evt) {
