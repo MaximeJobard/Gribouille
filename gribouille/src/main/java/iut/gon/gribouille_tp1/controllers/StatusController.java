@@ -17,6 +17,9 @@ public class StatusController implements Initializable{
 	
 	@FXML
 	public Label epaisseur;
+	
+	@FXML
+	public Label typeOutil;
 
 	public Controller controller;
 

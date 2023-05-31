@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import iut.gon.gribouille_tp1.Dialogue;
 import iut.gon.gribouille_tp1.Outils;
 import iut.gon.gribouille_tp1.OutilsCrayon;
+import iut.gon.gribouille_tp1.OutilsEtoile;
 import iut.gon.gribouille_tp1.modele.Dessin;
 import iut.gon.gribouille_tp1.modele.Trace;
 import javafx.application.Platform;
@@ -72,27 +73,38 @@ public class Controller implements Initializable {
 	}
 
 
+	public Dessin getDessin() {
+		return dessin;
+	}
+
+
+	public Trace getTrace() {
+		return trace;
+	}
+
+	public void setTrace(Trace t) {
+		trace = t;
+	}
+
 	public void onMousePressed(MouseEvent evt) {
-		prevX.set(evt.getX());
-		prevY.set(evt.getY());
-		if (trace != null) {
-			if(trace.getPoints().size()>1) {
-				dessin.addFigure(trace);
-			}
-		}
-		trace = new Trace(10, "noir", prevX.getValue(), prevY.getValue());
+		
+		outils.onMousePress(evt);
 	}
 
 	public void onMouseDragged(MouseEvent evt) {
-		dessinController.canvas.getGraphicsContext2D().strokeLine(prevX.getValue(), prevY.getValue(), evt.getX(), evt.getY());
-		trace.addPoint(prevX.getValue(), prevY.getValue());
-		this.prevX.set(evt.getX());
-		this.prevY.set(evt.getY());
-		dessin.addFigure(trace); 
+		outils.onMouseDrag(evt);
 	}
 	
 	public void onMouseMove(MouseEvent evt) {
 		
+	}
+	
+	public void onCrayon() {
+		outils = new OutilsCrayon(this);
+	}
+	
+	public void onEtoile() {
+		outils = new OutilsEtoile(this);
 	}
 	
 	public boolean OnQuitter() {

@@ -51,13 +51,13 @@
 							toggleGroup="$ep" />
 					</items>
 				</Menu>
-				<RadioMenuItem mnemonicParsing="false" selected="true"
+				<RadioMenuItem fx:id="crayon" mnemonicParsing="false" selected="true"
 					text="Crayon">
 					<toggleGroup>
 						<ToggleGroup fx:id="outils" />
 					</toggleGroup>
 				</RadioMenuItem>
-				<RadioMenuItem mnemonicParsing="false" text="Etoile"
+				<RadioMenuItem fx:id="etoile" mnemonicParsing="false" text="Etoile"
 					toggleGroup="$outils" />
 			</items>
 		</Menu>

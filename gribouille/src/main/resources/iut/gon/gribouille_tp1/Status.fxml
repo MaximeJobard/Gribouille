@@ -1,30 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.canvas.Canvas?>
-<?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.RadioMenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.TilePane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 
-
-<GridPane BorderPane.alignment="CENTER"
-	fx:controller="iut.gon.gribouille_tp1.controllers.StatusController"
-	xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane prefHeight="31.0" prefWidth="637.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iut.gon.gribouille_tp1.controllers.StatusController">
 	<children>
 		<HBox prefHeight="100.0" prefWidth="200.0">
 			<children>
@@ -32,24 +15,29 @@
 				<Label fx:id="coX" text="0" />
 			</children>
 		</HBox>
-		<HBox prefHeight="100.0" prefWidth="200.0"
-			GridPane.columnIndex="1">
+		<HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
 			<children>
 				<Label text="Y : " />
 				<Label fx:id="coY" text="0" />
 			</children>
 		</HBox>
-		<Label prefHeight="16.0" prefWidth="76.0" text="Couleur"
-			GridPane.columnIndex="4" />
-		<Label text="Outils" GridPane.columnIndex="3" />
-		<HBox prefHeight="100.0" prefWidth="120.0"
-			GridPane.columnIndex="2">
+		<Label alignment="TOP_LEFT" prefHeight="97.0" prefWidth="75.0" text="Couleur" GridPane.columnIndex="4" />
+		<Label fx:id="typeOutil" alignment="TOP_CENTER" prefHeight="100.0" prefWidth="103.0" text="Crayon" GridPane.columnIndex="3" />
+		<HBox prefHeight="100.0" prefWidth="120.0" GridPane.columnIndex="2">
 			<children>
 				<Label text="Epaisseur : " />
 				<Label fx:id="epaisseur" text="3" />
 			</children>
 		</HBox>
 	</children>
+   <columnConstraints>
+      <ColumnConstraints maxWidth="195.20001220703125" minWidth="170.4000244140625" prefWidth="170.4000244140625" />
+      <ColumnConstraints maxWidth="200.7999755859375" minWidth="170.4000244140625" prefWidth="183.2000244140625" />
+      <ColumnConstraints maxWidth="140.7999755859375" minWidth="92.80007934570312" prefWidth="98.39997558593751" />
+      <ColumnConstraints maxWidth="104.80002441406248" minWidth="35.999987792968795" prefWidth="100.80002441406248" />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
 </GridPane>
-     
-
