@@ -50,14 +50,13 @@ public class DessinController implements Initializable{
 					for (Figure f : dessin.getFigures()) {
 						for (int i = 1; i < f.getPoints().size() - 1; i++) {
 							canvas.getGraphicsContext2D().strokeLine(f.getPoints().get(i - 1).getX(),
-									f.getPoints().get(i - 1).getY(), f.getPoints().get(i).getX(),
+									f.getPoints().get(i - 1).getY(), 
+									f.getPoints().get(i).getX(),
 									f.getPoints().get(i).getY());
 						}
 					}
 				}
-
 			}
-
 		};
 		canvas.widthProperty().bind(pane.widthProperty());
 		canvas.heightProperty().bind(pane.heightProperty());
