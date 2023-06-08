@@ -41,27 +41,10 @@ public class DessinController implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		ChangeListener gestionnaire = new ChangeListener<Number>() {
-
-			@Override
-			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-				if (trace != null) {
-					dessin.addFigure(trace);
-					for (Figure f : dessin.getFigures()) {
-						for (int i = 1; i < f.getPoints().size() - 1; i++) {
-							canvas.getGraphicsContext2D().strokeLine(f.getPoints().get(i - 1).getX(),
-									f.getPoints().get(i - 1).getY(), 
-									f.getPoints().get(i).getX(),
-									f.getPoints().get(i).getY());
-						}
-					}
-				}
-			}
-		};
+		
 		canvas.widthProperty().bind(pane.widthProperty());
 		canvas.heightProperty().bind(pane.heightProperty());
-		canvas.widthProperty().addListener(gestionnaire);
-		canvas.heightProperty().addListener(gestionnaire);
+		
 		
 	}
 	
