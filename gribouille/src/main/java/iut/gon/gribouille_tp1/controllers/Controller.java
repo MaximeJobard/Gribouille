@@ -20,6 +20,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
+import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -94,6 +95,16 @@ public class Controller implements Initializable {
 		dessinController.canvas.widthProperty().addListener(gestionnaire);
 		dessinController.canvas.heightProperty().addListener(gestionnaire);
 		
+//		ChangeListener epaisseurListener = new ChangeListener<Toggle>() {
+//
+//			@Override
+//			public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+//				epaisseurs.setValue(ep.getSelectedToggle());
+//			}
+//			
+//		};
+//		
+//		ep.selectedToggleProperty().addListener(epaisseurListener);
 		
 	}
 
@@ -136,4 +147,7 @@ public class Controller implements Initializable {
 		return Dialogue.confirmation(); 
 	}
 	
+	public void setCouleur(Color c){
+		dessinController.canvas.getGraphicsContext2D().setStroke(c);
+	}
 }

@@ -77,4 +77,7 @@ public class DessinController implements Initializable{
 		controller.onMouseDragged(evt);
 	}
 	
+	public void setEpaisseur(int e) {
+		
+	}
 }
