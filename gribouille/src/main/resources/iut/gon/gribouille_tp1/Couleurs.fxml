@@ -12,13 +12,13 @@
 		<ColorPicker fx:id="ColorPicker" />
 		<TilePane hgap="3.0" prefHeight="214.0" prefWidth="115.0" vgap="3.0">
 			<children>
-				<Rectangle id="rouge" fx:id="rouge" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" width="48.0" />
+				<Rectangle id="rouge" fx:id="rouge" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
 				<Rectangle id="vert" fx:id="vert" arcHeight="5.0" arcWidth="5.0" fill="#21ff1f" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
 				<Rectangle id="bleu" fx:id="bleu" arcHeight="5.0" arcWidth="5.0" fill="#1f20ff" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
 				<Rectangle id="cyan" fx:id="cyan" arcHeight="5.0" arcWidth="5.0" fill="#7de9f0" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
 				<Rectangle id="rose" fx:id="rose" arcHeight="5.0" arcWidth="5.0" fill="#ff1fec" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
 				<Rectangle id="jaune" fx:id="jaune" arcHeight="5.0" arcWidth="5.0" fill="#ebff1f" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
-				<Rectangle id="noir" fx:id="noir" arcHeight="5.0" arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
+				<Rectangle id="noir" fx:id="noir" arcHeight="10.0" arcWidth="10.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" width="48.0" />
 				<Rectangle id="blanc" fx:id="blanc" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="48.0" />
 			</children>
 			<padding>

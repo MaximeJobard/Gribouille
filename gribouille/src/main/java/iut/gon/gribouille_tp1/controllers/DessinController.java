@@ -15,6 +15,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
 public class DessinController implements Initializable{
 	
@@ -45,7 +46,9 @@ public class DessinController implements Initializable{
 		canvas.widthProperty().bind(pane.widthProperty());
 		canvas.heightProperty().bind(pane.heightProperty());
 		
-		
+		canvas.addEventHandler(MouseEvent.MOUSE_MOVED, (evt)->{
+			controller.onMouseMove(evt);
+		});
 	}
 	
 	public void setController(Controller c) {
@@ -79,5 +82,42 @@ public class DessinController implements Initializable{
 	
 	public void setEpaisseur(int e) {
 		
+	}
+	
+	public void setCouleur(String c) {
+		switch(c) {
+		case "blanc":
+			canvas.getGraphicsContext2D().setStroke(Color.WHITE);
+			controller.statusController.couleur.setText("Blanc");
+			break;
+		case "bleu":
+			canvas.getGraphicsContext2D().setStroke(Color.BLUE);
+			controller.statusController.couleur.setText("Bleu");
+			break;
+		case "cyan":
+			canvas.getGraphicsContext2D().setStroke(Color.CYAN);
+			controller.statusController.couleur.setText("Cyan");
+			break;
+		case "rouge":
+			canvas.getGraphicsContext2D().setStroke(Color.RED);
+			controller.statusController.couleur.setText("Rouge");
+			break;
+		case "noir":
+			canvas.getGraphicsContext2D().setStroke(Color.BLACK);
+			controller.statusController.couleur.setText("Noir");
+			break;
+		case "rose":
+			canvas.getGraphicsContext2D().setStroke(Color.PINK);
+			controller.statusController.couleur.setText("Rose");
+			break;
+		case "jaune":
+			canvas.getGraphicsContext2D().setStroke(Color.YELLOW);
+			controller.statusController.couleur.setText("Jaune");
+			break;
+		case "vert":
+			canvas.getGraphicsContext2D().setStroke(Color.GREEN);
+			controller.statusController.couleur.setText("Vert");
+			break;
+	}
 	}
 }

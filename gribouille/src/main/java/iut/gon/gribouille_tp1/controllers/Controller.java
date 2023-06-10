@@ -27,7 +27,7 @@ import javafx.scene.paint.Color;
 
 public class Controller implements Initializable {
 	public final SimpleObjectProperty<Color> couleur = new SimpleObjectProperty<Color>(Color.BLACK);
-	public final SimpleIntegerProperty epaisseurs = new SimpleIntegerProperty(1);
+	public final SimpleIntegerProperty epaisseurs = new SimpleIntegerProperty();
 	
 	@FXML
 	public DessinController dessinController;
@@ -60,6 +60,9 @@ public class Controller implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
+		
+//		dessinController.setCouleur("noir");
+
 		/*ep.selectedToggleProperty().addListener((obs, old, neww) -> {
 			System.out.println(neww);
 		});*/
@@ -69,6 +72,8 @@ public class Controller implements Initializable {
 		this.couleursController.setController(this);
 		this.menusController.setController(this);
 		this.statusController.setController(this);
+		
+//		dessinController.canvas.getGraphicsContext2D().setStroke(Color.BLACK);
 		
 		statusController.coX.textProperty().bind(prevX.asString());
 		statusController.coY.textProperty().bind(prevY.asString());
@@ -82,6 +87,7 @@ public class Controller implements Initializable {
 					dessin.addFigure(trace);
 					for (Figure f : dessin.getFigures()) {
 						for (int i = 1; i < f.getPoints().size() - 1; i++) {
+							dessinController.setCouleur(f.getCouleur());
 							dessinController.canvas.getGraphicsContext2D().strokeLine(f.getPoints().get(i - 1).getX(),
 									f.getPoints().get(i - 1).getY(), 
 									f.getPoints().get(i).getX(),
@@ -106,6 +112,7 @@ public class Controller implements Initializable {
 //		
 //		ep.selectedToggleProperty().addListener(epaisseurListener);
 		
+//		dessinController.setCouleur("noir");
 	}
 
 
@@ -132,7 +139,8 @@ public class Controller implements Initializable {
 	}
 	
 	public void onMouseMove(MouseEvent evt) {
-		
+//		statusController.coX.textProperty().set(evt.getX()+"");
+//		statusController.coY.textProperty().set(evt.getY()+"");
 	}
 	
 	public void onCrayon() {
@@ -145,9 +153,5 @@ public class Controller implements Initializable {
 	
 	public boolean OnQuitter() {
 		return Dialogue.confirmation(); 
-	}
-	
-	public void setCouleur(Color c){
-		dessinController.canvas.getGraphicsContext2D().setStroke(c);
 	}
 }

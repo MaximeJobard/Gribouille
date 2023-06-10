@@ -21,7 +21,7 @@
 				<Label fx:id="coY" text="0" />
 			</children>
 		</HBox>
-		<Label alignment="TOP_LEFT" prefHeight="97.0" prefWidth="75.0" text="Couleur" GridPane.columnIndex="4" />
+		<Label fx:id="couleur" alignment="TOP_LEFT" prefHeight="97.0" prefWidth="75.0" text="Couleur" GridPane.columnIndex="4" />
 		<Label fx:id="typeOutil" alignment="TOP_CENTER" prefHeight="100.0" prefWidth="103.0" text="Crayon" GridPane.columnIndex="3" />
 		<HBox prefHeight="100.0" prefWidth="120.0" GridPane.columnIndex="2">
 			<children>

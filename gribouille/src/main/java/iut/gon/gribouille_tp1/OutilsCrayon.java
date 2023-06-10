@@ -20,7 +20,7 @@ public class OutilsCrayon extends Outils{
 				controlleur.getDessin().addFigure(controlleur.getTrace());
 			}
 		}
-		controlleur.setTrace(new Trace(10, "noir", controlleur.prevX.getValue(), controlleur.prevY.getValue()));
+		controlleur.setTrace(new Trace(10, controlleur.couleursController.rec.getId(), controlleur.prevX.getValue(), controlleur.prevY.getValue()));
 	}
 
 	@Override

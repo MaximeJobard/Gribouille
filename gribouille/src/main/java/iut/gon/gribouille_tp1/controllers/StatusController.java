@@ -20,6 +20,9 @@ public class StatusController implements Initializable{
 	
 	@FXML
 	public Label typeOutil;
+	
+	@FXML
+	public Label couleur;
 
 	public Controller controller;
 
@@ -30,6 +33,5 @@ public class StatusController implements Initializable{
 
 	public void setController(Controller controller2) {
 		controller = controller2;
-		
 	}
 }

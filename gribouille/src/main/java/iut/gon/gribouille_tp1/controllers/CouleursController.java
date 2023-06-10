@@ -46,6 +46,8 @@ public class CouleursController implements Initializable {
 
 	public Controller controller;
 	
+	public Rectangle rec;
+	
 	public ArrayList<Rectangle> recTab = new ArrayList<Rectangle>();
 	
 	@Override
@@ -59,15 +61,16 @@ public class CouleursController implements Initializable {
 		recTab.add(cyan);
 		recTab.add(noir);
 		
+		rec = noir;
+		
 		vBox.addEventHandler(MouseEvent.MOUSE_CLICKED, (evt) -> {
-			for(Rectangle r : recTab) {
-				r.setArcWidth(5);
-				r.setArcHeight(5);
-				r.setStrokeWidth(1);
-			}
 			
 			if(evt.getTarget().getClass() == blanc.getClass()) {
-				
+				for(Rectangle r : recTab) {
+					r.setArcWidth(5);
+					r.setArcHeight(5);
+					r.setStrokeWidth(1);
+				}
 				for(Rectangle r : recTab) {
 					if(evt.getTarget().equals(r)) {
 						r.setArcWidth(10);
@@ -76,34 +79,8 @@ public class CouleursController implements Initializable {
 					}
 				}
 				
-				Rectangle rec = (Rectangle) evt.getTarget();
-				
-				switch(rec.getId()) {
-				case "blanc":
-					controller.setCouleur(Color.WHITE);
-					break;
-				case "bleu":
-					controller.setCouleur(Color.BLUE);
-					break;
-				case "cyan":
-					controller.setCouleur(Color.CYAN);
-					break;
-				case "rouge":
-					controller.setCouleur(Color.RED);
-					break;
-				case "noir":
-					controller.setCouleur(Color.BLACK);
-					break;
-				case "rose":
-					controller.setCouleur(Color.PINK);
-					break;
-				case "jaune":
-					controller.setCouleur(Color.YELLOW);
-					break;
-				case "vert":
-					controller.setCouleur(Color.GREEN);
-					break;
-				}
+				rec = (Rectangle) evt.getTarget();
+				controller.dessinController.setCouleur(rec.getId());
 			}
 		});	
 	}
