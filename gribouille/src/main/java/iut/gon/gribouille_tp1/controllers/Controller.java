@@ -29,7 +29,7 @@ import javafx.scene.paint.Color;
 
 public class Controller implements Initializable {
 	public final SimpleObjectProperty<Color> couleur = new SimpleObjectProperty<Color>(Color.BLACK);
-	public final SimpleIntegerProperty epaisseurs = new SimpleIntegerProperty();
+	public final SimpleIntegerProperty epaisseurs = new SimpleIntegerProperty(1);
 
 	@FXML
 	public DessinController dessinController;
