@@ -123,7 +123,7 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
         stage.setOnCloseRequest(event -> {
-        	if(Dialogue.confirmation()) {
+        	if(controller.onQuitter()) {
         		Platform.exit();
         	}
         	else{
