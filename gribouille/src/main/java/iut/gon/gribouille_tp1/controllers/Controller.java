@@ -7,6 +7,7 @@ import iut.gon.gribouille_tp1.Dialogue;
 import iut.gon.gribouille_tp1.Outils;
 import iut.gon.gribouille_tp1.OutilsCrayon;
 import iut.gon.gribouille_tp1.OutilsEtoile;
+import iut.gon.gribouille_tp1.OutilsGomme;
 import iut.gon.gribouille_tp1.modele.Dessin;
 import iut.gon.gribouille_tp1.modele.Figure;
 import iut.gon.gribouille_tp1.modele.Trace;
@@ -51,6 +52,7 @@ public class Controller implements Initializable {
 	public SimpleDoubleProperty prevX = new SimpleDoubleProperty();
 	public SimpleDoubleProperty prevY = new SimpleDoubleProperty();
 	public Outils outils = new OutilsCrayon(this);
+	public int nTool = 1;
 	
 	public Controller(Dessin d) {
 		dessin = d;
@@ -145,13 +147,43 @@ public class Controller implements Initializable {
 	
 	public void onCrayon() {
 		outils = new OutilsCrayon(this);
+		menusController.outils.selectToggle(menusController.crayon);
+		nTool = 1;
 	}
 	
 	public void onEtoile() {
 		outils = new OutilsEtoile(this);
+		menusController.outils.selectToggle(menusController.etoile);
+		nTool = 2;
+	}
+	
+	public void onGomme() {
+		outils = new OutilsGomme(this);
+		menusController.outils.selectToggle(menusController.gomme);
 	}
 	
 	public boolean OnQuitter() {
 		return Dialogue.confirmation(); 
+	}
+	
+	public void onKeyPressed(String s) {
+		switch(s) {
+		case " e":
+			if(!(outils.getClass() == new OutilsGomme(this).getClass())) {
+				onGomme();
+			}
+			else {
+				if(nTool == 1) {
+					onCrayon();
+				}
+				else {
+					onEtoile();
+				}
+			}
+			break;
+		case " s" :
+			onEtoile();
+			break;
+		}
 	}
 }

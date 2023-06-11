@@ -34,10 +34,19 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("CadreGribouille.fxml"));
         Dessin d = new Dessin();
-        Controller dessinController = new Controller(d);
+        Controller controller = new Controller(d);
         
-        fxmlLoader.setController(dessinController);
+        fxmlLoader.setController(controller);
     	
+        stage.addEventHandler(javafx.scene.input.KeyEvent.KEY_PRESSED, (evt) -> {
+        	String tmp = evt.toString();
+        	System.out.println(tmp);
+        	String t[] = tmp.split(",");
+        	String t2[] = t[6].split("=");
+        	System.out.println(t2[1]);
+        	controller.onKeyPressed(t2[1]);
+        });
+        
     	scene = new Scene(fxmlLoader.load(), 960, 540);
         stage.setScene(scene);
         stage.show();

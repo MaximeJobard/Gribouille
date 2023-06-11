@@ -24,6 +24,9 @@ public class MenusController implements Initializable{
 	@FXML
 	public RadioMenuItem etoile;
 	
+	@FXML
+	public RadioMenuItem gomme;
+	
 	public Controller controller;
 	
 	@Override
@@ -43,6 +46,10 @@ public class MenusController implements Initializable{
 					controller.statusController.typeOutil.setText("Etoile");
 				}
 				
+				if(newValue == gomme) {
+					controller.onGomme();
+					controller.statusController.typeOutil.setText("Gomme");
+				}
 			}
 		};
 		
