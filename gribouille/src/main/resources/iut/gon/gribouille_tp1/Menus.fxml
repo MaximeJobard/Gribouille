@@ -13,11 +13,11 @@
 	<menus>
 		<Menu mnemonicParsing="false" text="Dessin">
 			<items>
-				<MenuItem mnemonicParsing="false" text="Charger" />
-				<MenuItem mnemonicParsing="false" text="Sauvegarder" />
-				<MenuItem mnemonicParsing="false" text="Exporter" />
+				<MenuItem fx:id="charger" mnemonicParsing="false" text="Charger" />
+				<MenuItem fx:id="sauvegarder" mnemonicParsing="false" text="Sauvegarder" />
+				<MenuItem fx:id="exporter" mnemonicParsing="false" text="Exporter" />
 				<SeparatorMenuItem mnemonicParsing="false" />
-				<MenuItem mnemonicParsing="false" text="Quiter" />
+				<MenuItem fx:id="quitter" mnemonicParsing="false" text="Quiter" />
 			</items>
 		</Menu>
 		<Menu mnemonicParsing="false" text="Outils">
