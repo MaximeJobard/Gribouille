@@ -84,8 +84,8 @@ public class DessinController implements Initializable{
 		controller.onMouseDragged(evt);
 	}
 	
-	public void setEpaisseur(int e) {
-		
+	public void setEpaisseur(int epaisseur) {
+		this.canvas.getGraphicsContext2D().setLineWidth(epaisseur);
 	}
 	
 	public void setCouleur(String c) {

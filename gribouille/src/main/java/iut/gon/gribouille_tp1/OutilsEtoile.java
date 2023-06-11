@@ -25,6 +25,7 @@ public class OutilsEtoile extends Outils {
 
 	@Override
 	public void onMouseDrag(MouseEvent evt) {
+
 		controlleur.dessinController.canvas.getGraphicsContext2D().strokeLine(controlleur.prevX.getValue(), controlleur.prevY.getValue(), evt.getX(), evt.getY());
 		controlleur.getTrace().addPoint(controlleur.prevX.getValue(), controlleur.prevY.getValue());
 		controlleur.getDessin().addFigure(controlleur.getTrace()); 

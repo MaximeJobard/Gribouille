@@ -103,18 +103,20 @@ public class Controller implements Initializable {
 		dessinController.canvas.widthProperty().addListener(gestionnaire);
 		dessinController.canvas.heightProperty().addListener(gestionnaire);
 		
-//		ChangeListener epaisseurListener = new ChangeListener<Toggle>() {
+		
+//		ChangeListener<Toggle> epaisseurListener = new ChangeListener<Toggle>() {
 //
 //			@Override
 //			public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-//				epaisseurs.setValue(ep.getSelectedToggle());
+////				epaisseurs.setValue(ep.getSelectedToggle().get);
+//				
 //			}
 //			
 //		};
 //		
 //		ep.selectedToggleProperty().addListener(epaisseurListener);
 		
-//		dessinController.setCouleur("noir");
+		dessinController.setCouleur("noir");
 	}
 
 
@@ -168,7 +170,7 @@ public class Controller implements Initializable {
 	
 	public void onKeyPressed(String s) {
 		switch(s) {
-		case " e":
+		case "e":
 			if(!(outils.getClass() == new OutilsGomme(this).getClass())) {
 				onGomme();
 			}
@@ -181,9 +183,44 @@ public class Controller implements Initializable {
 				}
 			}
 			break;
-		case " s" :
+		case "s" :
 			onEtoile();
 			break;
+		case "b" :
+			onCrayon();
+			break;
+		}
+	}
+	
+	public void setEpaisseur(int epais) {
+		switch(epais) {
+		case 1:
+			this.epaisseurs.set(1);
+			break; 
+		case 2:
+			this.epaisseurs.set(2);
+			break; 
+		case 3:
+			this.epaisseurs.set(3);
+			break; 
+		case 4:
+			this.epaisseurs.set(4);
+			break; 
+		case 5:
+			this.epaisseurs.set(5);
+			break; 
+		case 6:
+			this.epaisseurs.set(6);
+			break; 
+		case 7:
+			this.epaisseurs.set(7);
+			break; 
+		case 8:
+			this.epaisseurs.set(8);
+			break; 
+		case 9:
+			this.epaisseurs.set(9);
+			break; 
 		}
 	}
 }
